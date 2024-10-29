@@ -1,0 +1,22 @@
+<div class="container">
+    <%- include('./partials/header.ejs')  %>
+</div>
+
+<section class="articles">
+    <% if(data.length == 0){ %>
+         <h3> found nothing</h3>
+    <% } else{ %>
+        <h3> All <span style="color: #e6c86e;"><%= find%></span>  that had been found</h3>
+        <ul class="article-ul">
+            <% data.forEach(e =>{ %>
+                <li>
+                    <a href="/post/<%= e._id%>">
+                        <span> <%= e.title%> </span>
+                        <span class="article-list__date">  <%= e.createdAt ? new Date(e.createdAt).toDateString() : 'Unknown Date' %> </span>
+                    </a>
+                </li>
+            <% }) %>   
+        </ul>
+    <% } %>
+</section>
+</ul>

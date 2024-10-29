@@ -1,0 +1,28 @@
+<div class="container">
+    <%- include('./partials/header.ejs')  %>
+</div>
+
+<div class="author">
+    <p class="author__body">
+        Website to Share Your Thoughts
+    </p>
+</div>
+
+
+<img src="/img/hero-image.webp" alt="">
+
+<a href="/dashboard" class="floating-btn">+</a>
+
+<section class="articles">
+    <h2 class="articles__heading">All Latest Posts</h2>
+    <ul class="article-ul">
+        <% data.forEach(e =>{ %>
+            <li>
+                <a href="/post/<%= e._id%>">
+                    <span><%= e.title%></span>
+                    <span class="article-list__date">  <%= e.createdAt ? new Date(e.createdAt).toDateString() : 'Unknown Date' %> </span>
+                </a>
+            </li>
+        <% }) %>     
+    </ul>
+</section>

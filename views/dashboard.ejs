@@ -1,0 +1,26 @@
+<div class="container">
+    <%- include('./partials/admin_header.ejs') %>
+</div>
+
+<div class="admin-title">
+    <h2>My Posts</h2>
+    <a href="/add-post" class="">+ Add New</a>
+</div>
+
+<ul class="admin-posts">
+    <% data.forEach(e =>{  %>
+        <li>
+            <a href="/post/<%= e._id %>">
+                <%= e.title %> &nearr;
+            </a>
+            <div class="admin-post-controls">
+                <a href="/edit-post/<%= e._id%>" class="btn">
+                    Edit
+                </a>
+                <form action="/delete-post/<%= e._id %>?_method=DELETE" method="post">
+                    <input type="submit" value="delete" class="btn">
+                </form>                
+            </div>
+        </li>
+    <% }) %>    
+</ul>

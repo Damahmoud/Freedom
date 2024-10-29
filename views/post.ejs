@@ -1,0 +1,24 @@
+<div class="container">
+    <%- include('./partials/header.ejs')  %>
+</div>
+
+
+<div class="ta">
+    <div>
+        <h3 class="post-title">
+            Title :<span class="last"> <%= data.title %></span>
+             
+        </h3>
+    </div>
+    <div>
+        <h3 class="post-title">
+            Author : <span class="last"><%= !data.author ? 'Owner' : data.author %></span>
+        </h3>
+    </div>
+</div>
+
+
+<article class="article">
+    <%= data.body %>
+</article>
+
